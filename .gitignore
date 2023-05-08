@@ -1,0 +1,23 @@
+node_modules
+.build
+build
+web_modules
+GENERATED
+dist
+.DS_Store
+*.env
+coverage
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# alright then, keep your secrets!
+config/env/secrets.*
+*.secrets.*
+
+# ignore any env overrides that are private to the developer's machine
+*.private-overrides.*
