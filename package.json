@@ -4,7 +4,8 @@
   "description": "A fantasy football tool.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -25,7 +26,19 @@
     "eslint-plugin-n": "^15.7.0",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.32.2",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.2",
     "prettier": "2.8.8",
     "typescript": "^5.0.4"
+  },
+  "lint-staged": {
+    "*.{js, jsx, ts, tsx, json}": [
+      "eslint --fix",
+      "prettier --write --ignore-unknown"
+    ],
+    "*.{css,md}": [
+      "prettier --write -- ignore-unknown"
+    ]
   }
+  
 }
