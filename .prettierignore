@@ -1,0 +1,16 @@
+# generic
+.github
+.vscode
+
+# node modules
+node_modules
+
+# npm
+.npm
+package-lock.json
+npm-debug.log
+
+# build
+# nothing, for now
+build
+coverage
