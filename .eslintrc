@@ -6,15 +6,15 @@
     "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
-    },
+    }
   },
   "env": {
     "node": true,
     "jest": true,
     "es6": true
   },
-  "extends": ["plugin:prettier/recommended", "plugin:react/recommended", "standard-with-typescript"],
+  "extends": ["plugin:react/recommended", "standard-with-typescript", "prettier"],
   "overrides": [],
-  "plugins": ["react", "prettier"],
+  "plugins": ["react"],
   "rules": {}
 }
