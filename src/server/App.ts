@@ -1,12 +1,13 @@
 import * as dotenv from 'dotenv';
+import express, {Express, Request, Response} from 'express';
+
 dotenv.config();
-console.log(process.env);
-const express = require('express');
-const app = express();
+
+const app: Express = express();
 const port = process.env.API_PORT;
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
+app.get('/', (req: Request, res: Response) => {
+  res.send('Hello World! Express and Typescript are working hand in hand!');
 });
 
 app.listen(port, () => {
