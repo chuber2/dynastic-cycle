@@ -8,7 +8,7 @@
     "prepare": "husky install",
     "start-server": "nodemon src/server/App.ts",
     "start-web": "webpack serve --open",
-    "start": "start-server",
+    "start": "webpack serve --open",
     "build": "webpack --config webpack.config.js",
     "watch": "webpack --watch"
   },
