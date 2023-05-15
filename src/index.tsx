@@ -1,4 +1,5 @@
 import React from 'react';
+import {createRoot} from 'react-dom/client';
 
 interface TitleProps {
   title: string; // required
@@ -14,4 +15,10 @@ const Title: React.FC<TitleProps> = ({title, subtitle}) => {
   );
 };
 
-export default Title;
+// @ts-ignore
+const domNode = document.getElementById('root');
+console.log('domNode', domNode);
+// @ts-ignore
+const root = createRoot(domNode);
+const element = <Title subtitle="there" title="hello" />;
+root.render(element);
