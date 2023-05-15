@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   mode: 'development',
   entry: {
-    index: './src/index.tsx',
+    index: './src/web/App.tsx',
     // print: './src/print.js',
     // random: './src/random.ts',
   },
