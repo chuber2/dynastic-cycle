@@ -1,25 +1,23 @@
 import React from 'react';
 import {createRoot} from 'react-dom/client';
-import MainPage from './components/MainPage/MainPage';
+import MainPage from './components/MainPage';
 
-interface TitleProps {
-  title: string; // required
-  subtitle?: string; // optional
-}
+import {Client as Styletron} from 'styletron-engine-atomic';
+import {Provider as StyletronProvider} from 'styletron-react';
+import {DarkTheme, BaseProvider, styled} from 'baseui';
 
 interface AppProps {}
 
-// const Title: React.FC<TitleProps> = ({title, subtitle}) => {
-//   return (
-//     <>
-//       <h1 className="hello">{title}</h1>
-//       <h2>{subtitle}</h2>
-//     </>
-//   );
-// };
+const engine = new Styletron();
 
 const App: React.FC<AppProps> = () => {
-  return <MainPage></MainPage>;
+  return (
+    <StyletronProvider value={engine}>
+      <BaseProvider theme={DarkTheme}>
+        <MainPage />
+      </BaseProvider>
+    </StyletronProvider>
+  );
 };
 
 // @ts-ignore
