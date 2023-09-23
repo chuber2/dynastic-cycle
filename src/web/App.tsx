@@ -2,19 +2,39 @@ import React from 'react';
 import {createRoot} from 'react-dom/client';
 import MainPage from './components/MainPage/MainPage';
 
+import { Provider as StyletronProvider, DebugEngine } from "styletron-react";
+import { Client as Styletron } from "styletron-engine-atomic";
+import { LightTheme, BaseProvider, styled } from 'baseui';
+import { StatefulInput } from 'baseui/input';
+
+const debug =
+  process.env.NODE_ENV === "production" ? void 0 : new DebugEngine();
+
+
+// 1. Create a client engine instance
+const engine = new Styletron();
+
+const Centered = styled('div', {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  height: '100%',
+});
+
 interface AppProps {}
 
-// const Title: React.FC<TitleProps> = ({title, subtitle}) => {
-//   return (
-//     <>
-//       <h1 className="hello">{title}</h1>
-//       <h2>{subtitle}</h2>
-//     </>
-//   );
-// };
-
+// 2. Provide the engine to the app
+// debug engine needs inlined source maps
 const App: React.FC<AppProps> = () => {
-  return <MainPage></MainPage>;
+  return(
+    <StyletronProvider value={engine} debug={debug} debugAfterHydration>
+      <BaseProvider theme={LightTheme}>
+        <Centered>
+        <MainPage></MainPage>;
+        </Centered>
+      </BaseProvider>
+    </StyletronProvider>
+  ) 
 };
 
 // @ts-ignore
