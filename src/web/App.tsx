@@ -1,11 +1,10 @@
 import React from 'react';
-import {createRoot} from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
 import MainPage from './components/MainPage/MainPage';
 
-import { Provider as StyletronProvider, DebugEngine } from "styletron-react";
+import { BaseProvider, LightTheme, styled } from 'baseui';
 import { Client as Styletron } from "styletron-engine-atomic";
-import { LightTheme, BaseProvider, styled } from 'baseui';
-import { StatefulInput } from 'baseui/input';
+import { DebugEngine, Provider as StyletronProvider } from "styletron-react";
 
 const debug =
   process.env.NODE_ENV === "production" ? void 0 : new DebugEngine();

@@ -21,3 +21,7 @@ config/env/secrets.*
 
 # ignore any env overrides that are private to the developer's machine
 *.private-overrides.*
+
+
+# other 
+playermap.json
