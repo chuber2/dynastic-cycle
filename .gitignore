@@ -1,0 +1,28 @@
+# deps
+node_modules/
+
+# env
+.env
+.env.local
+.env.*.local
+
+# build outputs
+dist/
+build/
+*.tsbuildInfo
+
+# logs
+*.log
+npm-debug.log*
+
+# local db (Prisma SQLite)
+*.db
+*.db-journal
+
+# editor
+.vscode/
+.idea/
+
+# Claude
+.claude/settings.local.json
+.claude/.credentials.json
