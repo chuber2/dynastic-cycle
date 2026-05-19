@@ -1,0 +1,18 @@
+{
+  "name": "dynastic-cycle",
+  "version": "1.0.0",
+  "description": "football baby",
+  "license": "ISC",
+  "author": "Chris Huber",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "workspaces": [
+    "client",
+    "server",
+    "shared"
+  ],
+  "private": true
+}
