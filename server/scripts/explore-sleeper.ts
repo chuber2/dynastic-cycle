@@ -12,8 +12,20 @@ if(!user_id) {
   throw new Error('Sleeper USER_ID not set in .env')
 }
 
+const league_id = process.env.SLEEPER_DYNASTY_LEAGUE_ID
+if(!league_id) {
+  throw new Error('Sleeper dynasty league id not set in env')
+}
+
 const userRes = await fetcher(`https://api.sleeper.app/v1/user/${user_id}`);
-console.log(userRes)
+
+const leaguesRes = await fetcher(`https://api.sleeper.app/v1/user/${user_id}/leagues/nfl/2026`)
+
+const dynastyRes = await fetcher(`https://api.sleeper.app/v1/league/${league_id}`)
+
+const rostersRes = await fetcher(`https://api.sleeper.app/v1/league/${league_id}/rosters`)
+
+console.log(rostersRes)
 
 export { };
 
