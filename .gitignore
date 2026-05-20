@@ -9,7 +9,7 @@ node_modules/
 # build outputs
 dist/
 build/
-*.tsbuildInfo
+*.tsbuildinfo
 
 # logs
 *.log
