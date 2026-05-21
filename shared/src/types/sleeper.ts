@@ -4,9 +4,9 @@ export type EpochTimeStamp = number
 
 // ── Shared enums ──────────────────────────────────────────────────────────────
 
-export type SleeperScoringType = "ppr" | "half_ppr" | "standard"
+export type SleeperScoringType = 'ppr' | 'half_ppr' | 'standard'
 
-export type SleeperSeasonType = "regular" | "pre" | "post"
+export type SleeperSeasonType = 'regular' | 'pre' | 'post'
 
 // ── User ──────────────────────────────────────────────────────────────────────
 
@@ -28,17 +28,13 @@ export type SleeperLeagueUser = SleeperUser & {
 
 // ── League ────────────────────────────────────────────────────────────────────
 
-export type SleeperLeagueStatus =
-  | "pre_draft"
-  | "drafting"
-  | "in_season"
-  | "complete"
+export type SleeperLeagueStatus = 'pre_draft' | 'drafting' | 'in_season' | 'complete'
 
 export type SleeperLeague = {
   league_id: string
   name: string
   status: SleeperLeagueStatus
-  sport: "nfl"
+  sport: 'nfl'
   season: string
   season_type: SleeperSeasonType
   total_rosters: number
@@ -54,9 +50,9 @@ export type SleeperLeague = {
 
 // ── Draft ─────────────────────────────────────────────────────────────────────
 
-export type SleeperDraftType = "snake" | "auction" | "linear"
+export type SleeperDraftType = 'snake' | 'auction' | 'linear'
 
-export type SleeperDraftStatus = "pre_draft" | "drafting" | "complete" | "paused"
+export type SleeperDraftStatus = 'pre_draft' | 'drafting' | 'complete' | 'paused'
 
 export type SleeperDraftSettings = {
   teams: number
@@ -83,7 +79,7 @@ export type SleeperDraft = {
   league_id: string
   type: SleeperDraftType
   status: SleeperDraftStatus
-  sport: "nfl"
+  sport: 'nfl'
   season: string
   season_type: SleeperSeasonType
   settings: SleeperDraftSettings
@@ -127,27 +123,21 @@ export type SleeperTradedDraftPick = SleeperDraftPick & {
 // ── Player ────────────────────────────────────────────────────────────────────
 
 export type SleeperPlayerStatus =
-  | "Active"
-  | "Inactive"
-  | "PUP"
-  | "Suspended"
-  | "Practice Squad"
-  | "Injured Reserve"
-  | "Non-Football Injury"
-  | "Commissioner Designated"
+  | 'Active'
+  | 'Inactive'
+  | 'PUP'
+  | 'Suspended'
+  | 'Practice Squad'
+  | 'Injured Reserve'
+  | 'Non-Football Injury'
+  | 'Commissioner Designated'
 
-export type SleeperInjuryStatus =
-  | "Questionable"
-  | "Doubtful"
-  | "Out"
-  | "IR"
-  | "PUP"
-  | "DNR"
+export type SleeperInjuryStatus = 'Questionable' | 'Doubtful' | 'Out' | 'IR' | 'PUP' | 'DNR'
 
 export type SleeperPracticeParticipation =
-  | "Full Participant"
-  | "Limited Participant"
-  | "Did Not Participate"
+  | 'Full Participant'
+  | 'Limited Participant'
+  | 'Did Not Participate'
 
 export type SleeperPlayerKey = string
 
@@ -172,7 +162,7 @@ export type SleeperPlayerDetails = {
   depth_chart_position: string | null
   depth_chart_order: number | null
   number: number | null
-  sport: "nfl"
+  sport: 'nfl'
 
   // team
   team: string | null
