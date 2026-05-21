@@ -7,12 +7,17 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "workspaces": [
     "client",
     "server",
     "shared"
   ],
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "prettier": "^3.8.3"
+  }
 }

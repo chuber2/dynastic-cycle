@@ -20,7 +20,6 @@ npm-debug.log*
 *.db-journal
 
 # editor
-.vscode/
 .idea/
 
 # Claude
