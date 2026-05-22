@@ -10,7 +10,7 @@ node_modules/
 dist/
 build/
 *.tsbuildinfo
-*generated*
+server/src/generated/
 
 # logs
 *.log
