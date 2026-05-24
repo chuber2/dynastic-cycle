@@ -19,6 +19,7 @@ model PlayerCache {
   id        String   @id
   firstName String
   lastName  String
+  fullName  String?
   position  String?
   team      String?
   age       Int?
