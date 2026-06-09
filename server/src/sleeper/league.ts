@@ -1,11 +1,7 @@
-import {SleeperLeague, SleeperRoster} from 'shared';
+import {EnrichedRoster, SleeperLeague, SleeperRoster} from 'shared';
 import {fetcher, SLEEPER_BASE_API} from './client';
 import {prisma} from '../db';
 import type {PlayerCache} from '../generated/prisma/client';
-
-type EnrichedRoster = Omit<SleeperRoster, 'players'> & {
-  players: PlayerCache[];
-};
 
 export const getLeagueDetails = async (): Promise<SleeperLeague> => {
   const leagueId = process.env.SLEEPER_DYNASTY_LEAGUE_ID;

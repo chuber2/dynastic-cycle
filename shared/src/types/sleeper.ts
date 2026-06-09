@@ -187,3 +187,24 @@ export type SleeperPlayerDetails = {
 };
 
 export type SleeperPlayersMap = Record<SleeperPlayerKey, SleeperPlayerDetails>;
+
+// ── Derived ────────────────────────────────────────────────────────────
+
+// (PlayerCache shape's — don't import Prisma here; declare it independently
+// since shared shouldn't know about Prisma)
+export type EnrichedPlayer = {
+  id: string;
+  firstName: string;
+  lastName: string;
+  fullName: string | null;
+  position: string | null;
+  team: string | null;
+  age: number | null;
+  birthDate: string | null;
+  status: string | null;
+  fetchedAt: string; // ISO string after JSON roundtrip
+};
+
+export type EnrichedRoster = Omit<SleeperRoster, 'players'> & {
+  players: EnrichedPlayer[];
+};
