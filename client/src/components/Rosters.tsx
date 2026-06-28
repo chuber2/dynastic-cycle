@@ -15,7 +15,9 @@ import {EnrichedPlayer, EnrichedRoster} from 'shared';
 
 const POSITION_ORDER = ['QB', 'RB', 'WR', 'TE', 'K', 'DEF'] as const;
 
-const groupByPosition = (players: EnrichedRoster['players']): Record<string, EnrichedPlayer[]> => {
+const groupByPosition = (
+  players: EnrichedRoster['players']
+): Partial<Record<string, EnrichedPlayer[]>> => {
   return Object.groupBy(players, ({position}) => position ?? '-');
 };
 
