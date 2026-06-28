@@ -10,6 +10,19 @@ export type SleeperSeasonType = 'regular' | 'pre' | 'post';
 
 // ── User ──────────────────────────────────────────────────────────────────────
 
+// Metadata keys Sleeper commonly returns on user objects in a league context.
+// All optional — owners aren't required to set them, and Sleeper may add more
+// over time. `[key: string]: string | undefined` catches unknown future keys.
+export type SleeperUserMetadata = {
+  team_name?: string;
+  mascot_name?: string;
+  avatar?: string;
+  mention_pn?: string; // notification preferences
+  allow_pn?: string;
+  trade_block_pn?: string;
+  [key: string]: string | undefined;
+};
+
 export type SleeperUser = {
   username: string;
   user_id: string;
@@ -17,13 +30,15 @@ export type SleeperUser = {
   avatar: string | null;
   real_name: string | null;
   is_bot: boolean;
-  metadata: Record<string, string> | null;
-  [key: string]: unknown;
+  metadata: SleeperUserMetadata | null;
 };
 
+// Returned by GET /league/{id}/users — adds league-specific fields.
+// `is_owner` is sometimes absent on cooperative co-owners; treat as optional.
 export type SleeperLeagueUser = SleeperUser & {
-  team_name: string;
-  is_owner: boolean;
+  league_id: string;
+  is_owner?: boolean;
+  settings?: Record<string, unknown> | null;
 };
 
 // ── League ────────────────────────────────────────────────────────────────────
@@ -202,9 +217,10 @@ export type EnrichedPlayer = {
   age: number | null;
   birthDate: string | null;
   status: string | null;
-  fetchedAt: string; // ISO string after JSON roundtrip
+  // fetched at excluded for date simplicity.
 };
 
 export type EnrichedRoster = Omit<SleeperRoster, 'players'> & {
   players: EnrichedPlayer[];
+  owner: SleeperLeagueUser | null;
 };
